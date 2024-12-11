@@ -16,10 +16,10 @@ class RuntimeError < StandardError
     puts "Error : #{e.message}"
     if i<=3
       puts "Trying again"
-      i+=1       
+      i+=1
       retry
     else
       puts "connection failed"
-      exit 
+      exit  
     end
   end
