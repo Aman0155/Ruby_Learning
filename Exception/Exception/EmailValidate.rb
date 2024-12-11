@@ -1,23 +1,26 @@
 class InvalidEmailError < StandardError
   def initialize(message)
-  super(message)
+    super(message)
   end
 end
 
 def validate_email(input)
-  pattern =/^[a-zA-Z0-9.to_i=%]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,}$/
+  pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   if input.match?(pattern)
-    puts"valid email#{input}"
+    puts "Valid email: #{input}"
   else
     raise InvalidEmailError.new("Invalid Email")
+  end
+end
+
 begin
-  puts "Enter a email"
-  email =gets.chomp
-  puts validateEmail(email)
+  puts "Enter an email:"
+  email = gets.chomp
+  validate_email(email)
 rescue InvalidEmailError => e
-  puts "Error : #{e.message}"
-  puts " Enter a valid email"
+  puts "Error: #{e.message}"
+  puts "Enter a valid email"
   retry
 ensure
-  puts " operation completed"
-end 
+  puts "Operation completed"
+end
