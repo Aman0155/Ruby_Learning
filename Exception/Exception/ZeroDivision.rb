@@ -8,7 +8,7 @@ begin
 
   rescue ArgumentError => e
     puts "Caught an argument error #{e.message}"
-    retry 
+    retry     
   rescue ZeroDivisionError => e
     puts " caught a zeroDivisionError #{e.message}"
     retry
