@@ -1,0 +1,12 @@
+<h1>Notes</h1>
+
+<div id="notes">
+  <%= turbo_stream_from "notes" %>
+  <% @notes.each do |note| %>
+    <%= render partial: "notes/note", locals: { note: note } %>
+  <% end %>
+</div>
+
+<turbo-frame id="new_note">
+  <%= link_to "New note", new_note_path, data: { turbo_frame: "new_note" } %>
+</turbo-frame>
